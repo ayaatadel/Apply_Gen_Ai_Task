@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sparkles } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { name: "Features", href: "#features" },
@@ -41,8 +43,8 @@ const Navigation = () => {
 
           {/* Desktop Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost">Sign In</Button>
-            <Button variant="ai">Get Started</Button>
+            <Button variant="ghost" onClick={() => navigate('/login')}>Login</Button>
+            <Button variant="ai" onClick={() => navigate('/register')}>Register</Button>
           </div>
 
           {/* Mobile menu button */}
@@ -72,11 +74,11 @@ const Navigation = () => {
                 </a>
               ))}
               <div className="px-3 py-2 space-y-2">
-                <Button variant="ghost" className="w-full">
-                  Sign In
+                <Button variant="ghost" className="w-full" onClick={() => { navigate('/login'); setIsOpen(false); }}>
+                  Login
                 </Button>
-                <Button variant="ai" className="w-full">
-                  Get Started
+                <Button variant="ai" className="w-full" onClick={() => { navigate('/register'); setIsOpen(false); }}>
+                  Register
                 </Button>
               </div>
             </div>
