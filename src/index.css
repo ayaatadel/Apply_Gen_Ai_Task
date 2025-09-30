@@ -50,7 +50,7 @@
     --radius: 0.75rem;
 
     /* AI Gradients */
-    --gradient-ai-primary: linear-gradient(135deg, hsl(220 100% 20%), hsl(270 80% 40%));
+    --gradient-ai-primary: linear-gradient(135deg, hsl(220, 30%, 66%), hsl(269, 29%, 72%));
     --gradient-ai-secondary: linear-gradient(135deg, hsl(220 100% 95%), hsl(270 60% 98%));
     --gradient-hero: linear-gradient(135deg, hsl(220 100% 8%) 0%, hsl(270 80% 15%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 20% 98%) 100%);
@@ -128,25 +128,26 @@
 }
 
 @layer components {
+
   /* Custom Component Styles */
   .hero-gradient {
     background: var(--gradient-hero);
   }
-  
+
   .card-gradient {
     background: var(--gradient-card);
   }
-  
+
   .ai-glow {
     box-shadow: var(--shadow-glow);
   }
-  
+
   .feature-card {
     transition: var(--transition-smooth);
     background: var(--gradient-card);
     box-shadow: var(--shadow-card);
   }
-  
+
   .feature-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-ai);
@@ -156,11 +157,11 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
   }
-  
+
   .animate-slide-up {
     animation: slideUp 0.8s ease-out forwards;
   }
@@ -177,13 +178,23 @@
 
 /* Keyframe Animations */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%, 100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: var(--shadow-glow); }
-  50% { box-shadow: 0 0 60px hsl(220 100% 35% / 0.5); }
+  0%, 100% {
+    box-shadow: var(--shadow-glow);
+  }
+
+  50% {
+    box-shadow: 0 0 60px hsl(220 100% 35% / 0.5);
+  }
 }
 
 @keyframes slideUp {
@@ -191,6 +202,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
